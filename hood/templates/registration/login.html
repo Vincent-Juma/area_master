@@ -1,0 +1,39 @@
+
+
+{%extends "registration/base.html"%}
+{% load bootstrap4 %}
+{% block content %}
+<div class="container">
+<div class="row">
+  
+
+ 
+    <div class="col-md-6" style="margin-top: 10%">
+       <img src="https://res.cloudinary.com/auca/image/upload/v1612210802/kigaliNEI_ekqh9r.png" width="100%" style="margin-right:30px;" alt="" class="img-responsive">
+      
+    </div>
+
+  <div class="col-md-6" style="margin-top:10%;">
+   
+    <img src="https://res.cloudinary.com/auca/image/upload/v1612210208/LOGO_firlwe.png"  alt=""  width="44%"   id="insta" style="margin-left:150px">
+    <div class="card-body mb-2 mr-2 ml-2">
+
+      <div class="card col-md-12 border-raduis=10px">
+    <form  action="/accounts/login/" method="post" style="margin-top: 8%">
+      {% csrf_token %}
+      {% bootstrap_form form%}     
+      <div class="form-group">
+        <input type="submit" class="btn btn-sm" style="background-color: #03989E;color: white;" value="Login">       
+      </div>
+      <input type="hidden" name="next" value="{{next}}">
+    </form>
+    {% if form.errors %}
+    <p> Password or Username is incorrect </p>
+    {% endif %}
+    <p>Don't have an account?? <a id="sign" href="/accounts/register/" style="color:#03989E;"> Sign up</a></p>
+</div>
+  </div>
+</div>
+</div>
+
+{% endblock %}

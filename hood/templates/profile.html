@@ -1,0 +1,44 @@
+{%extends 'base.html'%}
+{% block content %}
+{% load static %}
+
+
+<style>
+.containerprofile{
+    padding-top: 8%;
+}
+</style>
+
+<div class="containerprofile">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 mt-4 bg-white prof mr-2 ml-2">
+            <img class="rounded-circle account-img d-block mx-auto"  src="{{ my_profile.profile_image.url }}" height="125px" width="125px">
+            <h5 class="text-center mt-3">{{user.username}}</h5>
+           <p class="text-center mt-3"> Bio__<i>{{my_profile.bio}}</i></p>
+        
+            <a class="btn btn-info" href="{%url 'edit'%}" style="margin-left: 40%;">Create Profile</a>
+       
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+
+</div>
+<div class="container">
+    <h1 class="text-center" style="color: grey;font-family: 'Times New Roman', Times, serif;padding-top: 5%;">Available Hoods</h1>
+    <br>
+    <div class="row">
+        {% for user in my_hoods %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="{{user.hood_image.url}}" width="100%" class="img-responsive" alt="Image">
+                <div class="card-body">
+                    <p style="font-weight: bold;font-family: 'Times New Roman', Times, serif;margin-top: -0.4cm;margin-bottom: -1cm;">{{user.location}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

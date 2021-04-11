@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{% load static %}
+{% block content %}
+{{block.super}}
+
+<style>
+    .container{
+        padding-top: 8%;
+    }
+</style>
+
+  <div class="container">
+      <div class="row">
+        {% for neighbourhood in neighbourhoods %}
+          <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                      <img src="{{neighbourhood.hood_image.url}}" width="100%">
+                  <div class="card-body">
+                      <p> <span>
+                          {{neighbourhood.hood_name}}</span>
+                          <span style="text-transform: capitalize;font-weight: bold;">({{ neighbourhood.location }})</span>
+                          <span style="float: right;"><a href="{%url 'detail' neighbourhood.id %}"><button class="btn btn-outline-primary btn-sm">Join Hood</button></a></span>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+  </div>
+
+{% endblock %}
