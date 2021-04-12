@@ -1,6 +1,6 @@
-# virtual/
-# __pycache__
-# .env
+virtual/
+__pycache__
+.env
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
