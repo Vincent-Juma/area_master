@@ -1,0 +1,30 @@
+{% load bootstrap4 %} 
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Activity</title>
+  {{form.media}}
+{% block styles %} {% endblock %}
+</head>
+<body>
+  <div class="card col-md-8" style="margin-top: 120px; margin-left: 150px;">
+    <div class="panel-heading">
+      <h1 class="text-center" style="font-weight: bold;" ><span>ACTIVITY</span> <span>FORM</span></h1>
+    </div>
+  
+  <form  action="{%url 'new_activity' myloc.id %}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    {% bootstrap_form form%}
+    <input type="submit" class="btn btn-outline-info btn-lg" value="Post">
+  </form>
+</div>
+   {% block scripts %}
+   {% endblock %}
+
+</body>
+</html>

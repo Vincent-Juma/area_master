@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{% load static %}
+{% block content %}
+{{block.super}}
+
+<style>
+    .container{
+        padding-top: 8%;
+    }
+</style>
+
+  <div class="container">
+      <div class="row">
+        {% for myloc in mylocs %}
+          <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                      <img src="{{myloc.my_area_image.url}}" width="100%">
+                  <div class="card-body">
+                      <p> <span>
+                          {{myloc.my_area_name}}</span>
+                          <span style="text-transform: capitalize;font-weight: bold;">({{ myloc.location }})</span>
+                          <span style="float: right;"><a href="{%url 'detail' myloc.id %}"><button class="btn btn-outline-primary btn-sm">Join My Area</button></a></span>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+  </div>
+
+{% endblock %}

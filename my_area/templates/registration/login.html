@@ -1,0 +1,31 @@
+
+
+{%extends "registration/base.html"%}
+{% load bootstrap4 %}
+{% block content %}
+   
+      <div class="container">
+        <div class="row">
+          <div class="card-body">
+            <br><br><br><br><br><br>
+
+    <form  action="/accounts/login/" method="post">
+      {% csrf_token %}
+      {% bootstrap_form form%}     
+      <div class="form-group">
+        <input type="submit" class="btn btn-sm" style="background-color: #014f66;color: white;" value="Login">       
+      </div>
+      <input type="hidden" name="next" value="{{next}}">
+    </form>
+    {% if form.errors %}
+    <p>Check your credentials</p>
+    {% endif %}
+    <p>Need an account?? <a id="sign" href="/accounts/register/" style="color:#014f66;"> Sign up</a></p>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+</div>
+
+{% endblock %}

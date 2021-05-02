@@ -1,3 +1,16 @@
 body {
+    background-attachment: fixed;
     background-color: #000000;
+    color: brown;
+
 }
+.my_area{
+    text-align: center;
+    padding-top: 3%;
+  }
+  .my_areap{
+    padding-top: 1%;
+    margin: auto;
+    width: 35%;
+    text-align: center;
+  }

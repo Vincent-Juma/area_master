@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/css/mdb.min.css" rel="stylesheet">
+</head>
+
+      <a class="nav-link" href="{%url 'home'%}">Home</a>
+
+    
+      <form action="{% url 'search' %}" class="form-inline my-2 my-lg-0">
+        <input type="text" class="input-sm form-control" name="project_name" placeholder="Search">
+    </form>
+      
+      <ul class="nav justify-content-end"></ul>
+    
+      {% if user.is_authenticated %}
+
+
+      <a class="nav-link" href="{% url 'myprofile' %}">{{user.username}}</a>
+
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="background-color:transparent">
+              <a class="dropdown-item" href="/accounts/register/" style="color: rgb(58, 58, 58)">Register</a>
+
+
+              <a href="/accounts/password/change">Change Password</a>
+              <a href="/accounts/login/">Logout</a>
+              {% else %}
+              <a class='btn btn-default' href="/accounts/login">Login</a>
+          </ul>
+          {% endif %}
+      </ul>
+
+  </nav>
+
+</div>
+</html>

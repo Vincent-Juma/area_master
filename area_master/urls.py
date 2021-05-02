@@ -16,12 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url,include
-from django.contrib import admin
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^',include('hood.urls')),
+    url(r'^',include('my_area.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url("^logout/$", LogoutView.as_view(),{"next_page":"/"}),
 ]

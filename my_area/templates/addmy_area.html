@@ -1,0 +1,39 @@
+{% load bootstrap4 %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upload</title>
+  {{form.media}}
+  {% block styles %}
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  {% endblock %}
+</head>
+  <div class="container">
+    
+    <div class="row">
+      <!-- Empty div -->
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-body">
+            <div class="panel-heading">
+              <h1 class="text-center" style="font-weight: bold;"><span>ADD</span> <span>My Area</span></h1>
+            </div>
+            <form action="{%url 'addmy_area' %}" method="post" enctype="multipart/form-data">
+              {%csrf_token%}
+              {% bootstrap_form form%}
+              <input type="submit" class="btn btn- btn-lg" value="Post">
+            </form>
+            {% block scripts %}
+            {% bootstrap_javascript %} {% endblock %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

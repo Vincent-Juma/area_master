@@ -1,0 +1,42 @@
+{% load bootstrap4 %}
+{% load static%}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  {% if title %}
+  <title>Area Master - {{title}}</title>
+  {% else %}
+  <title> Area Master </title>
+  {% endif %}
+
+
+  {% block styles %}
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+  {% endblock %}
+
+</head>
+
+
+
+<body>
+  {% include "navbar.html" %}
+  
+  {% block content %} 
+  <a class=" btn btn-info" href="{% url 'addmy_area' %}">Add My Area</a>
+     
+  <h1 class="my_area">Area Master</h1>
+  <p class="my_areap">Welcome!! Please add your area to explore more</p>
+ 
+
+  {%endblock%}
+
+  {% block scripts %}
+  {% endblock %}
+</body>
+
+</html>

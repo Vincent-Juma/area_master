@@ -23,12 +23,12 @@ ALLOWED_HOSTS = ['myareaproject.herokuapp.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'my_area',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hood',
     'bootstrap4',
     'crispy_forms',
 ]
@@ -138,15 +138,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
 
+LOGIN_REDIRECT_URL = 'home'
+
+LOGIN_URL = 'login'
+
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-LOGIN_REDIRECT_URL = 'home'
-
-LOGIN_URL = 'login'
 
 django_heroku.settings(locals())
 
