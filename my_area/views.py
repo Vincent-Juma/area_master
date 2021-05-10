@@ -30,7 +30,7 @@ def my_profile(request):
     current_user = request.user
     my_my_area = Myloc.objects.filter(user = current_user)
     my_profile = Profile.objects.filter(user = current_user).first
-    return render(request, 'profile.html', {"my_my_areas": my_my_areas, "my_profile":my_profile})
+    return render(request, 'profile.html', {"my_my_areas":my_my_areas, "my_profile":my_profile})
 
 @login_required(login_url='/accounts/login/')
 def addmy_area(request):
