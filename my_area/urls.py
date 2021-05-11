@@ -3,7 +3,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from . import views
 
-
 urlpatterns=[
     url('^$',views.home,name = 'home'),
     url(r'^new/profile$', views.add_profile, name='edit'),
